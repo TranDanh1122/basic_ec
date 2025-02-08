@@ -15,9 +15,8 @@ import { Skeleton } from "@/components/ui/skeleton"
 const Hero = React.memo((): React.JSX.Element => {
     return <div className="container mx-auto flex items-center ">
         <SideMenu className="w-1/6 pr-4 border-r-[1px] border-solid border-black/30 py-10"></SideMenu>
-
-        <Carousel className="w-5/6 pl-10">
-            <CarouselContent className="max-h-[350px]">
+        <Carousel className="w-5/6 pl-10 py-10">
+            <CarouselContent className="max-h-[400px]">
                 <CarouselItem >
                     <img src="/assets/banner.jpg" className="w-full h-full object-cover" />
                 </CarouselItem>
