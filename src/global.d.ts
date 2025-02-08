@@ -20,5 +20,10 @@ declare global {
         gender: string,
         image: string,
     }
+    interface Category {
+        name: string,
+        slug: string,
+        url: string
+    }
 }
 export { }
