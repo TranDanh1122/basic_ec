@@ -48,7 +48,7 @@ const SideMenu = React.memo((props: { className?: string }) => {
     return <NavigationMenu className={` max-w-none justify-start ${props.className}`} >
         <NavigationMenuList className="flex flex-col items-start gap-4">
             {
-                categories.slice(0, 10).map((el: Category) => <NavigationMenuItem>
+                categories.slice(0, 10).map((el: Category) => <NavigationMenuItem key={el.slug}>
                     <Link className="text-base leading-6 text-black font-medium" to={"/"}>{el.name} </Link>
                 </NavigationMenuItem>)
             }

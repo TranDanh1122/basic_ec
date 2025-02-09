@@ -1,4 +1,5 @@
 import ProductItem from "@/components/Home/ProductItem";
+import BreadcrumbCPN from "@/components/Shared/BreadcrumbCPN";
 import { Button } from "@/components/ui/button";
 import { useWishlist } from "@/hooks/useWishlist";
 import React from "react";
@@ -6,6 +7,7 @@ export default function WishLish(): React.JSX.Element {
     const { wishlist, length } = useWishlist()
     const [page, setPage] = React.useState<number>(1)
     return <>
+        <BreadcrumbCPN items={[{ name: "Home", link: "/" }, { name: "Wishlist", link: "/wishlist" }]} />
         <div className="flex justify-between items-center">
             <h2 className="text-[20px] py-20">Wishlist ({wishlist.length})</h2>
         </div>

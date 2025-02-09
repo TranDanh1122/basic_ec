@@ -7,8 +7,8 @@ const BreadcrumbCPN = React.memo(({ items }: { items: { name: string, link: stri
             <BreadcrumbList>
                 {
                     items.map((el: Record<string, string>, index: number) => (
-                        <>
-                            <BreadcrumbItem>
+                        <React.Fragment key={el.name}>
+                            <BreadcrumbItem >
                                 <BreadcrumbLink href={el.link}>{el.name}</BreadcrumbLink>
                             </BreadcrumbItem>
                             {index + 1 !== items.length && (
@@ -16,7 +16,7 @@ const BreadcrumbCPN = React.memo(({ items }: { items: { name: string, link: stri
                                     <Slash />
                                 </BreadcrumbSeparator>
                             )}
-                        </>
+                        </React.Fragment>
                     ))
                 }
             </BreadcrumbList>
