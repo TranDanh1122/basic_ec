@@ -9,6 +9,7 @@ import ProductDetail from "./pages/ProductDetail"
 import About from "./pages/About"
 import Layout from "./Layout/Layout"
 import WishLishContextProvider from "./context/WishListContext"
+import Checkout from "./pages/Checkout"
 function App() {
 
   return (
@@ -23,6 +24,8 @@ function App() {
             <Route path="/cart" element={<Cart />} />
             <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/about" element={<About />} />
+            <Route path="/checkout" element={<Checkout />} />
+
           </Routes>
         </Layout>
       </WishLishContextProvider>

@@ -3,7 +3,7 @@ import React from "react";
 
 export default function About(): React.JSX.Element {
     return <>
-        <BreadcrumbCPN items={[{ name: "Home", link: "/" }, { name: "About", link: "/" }]} />
+        <BreadcrumbCPN items={[{ name: "Home", link: "/" }, { name: "About", link: "/about" }]} />
         <section className="flex items-center justify-between gap-20">
             <div className="py-32 w-1/2">
                 <h2 className="font-semibold text-[54px] mb-10">Our Story</h2>

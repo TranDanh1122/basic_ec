@@ -14,6 +14,7 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
+import { Link } from "react-router-dom";
 export default function Cart(): React.JSX.Element {
     const { cart, total, dispatch, deleteItem, length, addOrUpdateItem } = useCart()
     const [page, setPage] = React.useState<number>(1)
@@ -97,7 +98,7 @@ export default function Cart(): React.JSX.Element {
 
                 </CardContent>
                 <CardFooter>
-                    <Button className="bg-[#DB4444] hover:opacity-75 text-white w-full mt-10 cursor-pointer">Checkout</Button>
+                    <Button className="bg-[#DB4444] hover:opacity-75 text-white w-full mt-10 cursor-pointer"><Link to={"/checkout"}>Checkout</Link></Button>
 
                 </CardFooter>
             </Card>
