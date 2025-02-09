@@ -5,8 +5,8 @@ export const WishLishContext = React.createContext<{ wishlist: CartItem[], dispa
 const wishlistReducer = (state: CartItem[], action: ActionType) => {
     switch (action.type) {
         case "AddOrDelete": {
-            const index = state.findIndex(el => el.pro_id == action.payload.pro_id)
-            if (index > -1) return state.filter(el => el.pro_id != action.payload.pro_id)
+            const index = state.findIndex(el => el.id == action.payload.id)
+            if (index > -1) return state.filter(el => el.id != action.payload.id)
             return [...state, action.payload]
         }
         default: return state;

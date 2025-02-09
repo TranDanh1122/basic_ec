@@ -10,10 +10,10 @@ const cartSlicer = createSlice({
     reducers: {
         addOrUpdateItem: (state: Cart, action: PayloadAction<Partial<CartItem>>) => {
             const item = action.payload
-            const index = state.cart.findIndex(el => el.pro_id == item.pro_id)
+            const index = state.cart.findIndex(el => el.id == item.id)
             if (index != -1) {
                 state.cart = state.cart.map(el => {
-                    if (el.pro_id == item.pro_id) return { ...el, ...item }
+                    if (el.id == item.id) return { ...el, ...item }
                     return el
                 })
                 return
@@ -28,7 +28,7 @@ const cartSlicer = createSlice({
         },
         deleteItem: (state: Cart, action: PayloadAction<number>) => {
             const pro_id = action.payload
-            state.cart = state.cart.filter(el => el.pro_id != pro_id)
+            state.cart = state.cart.filter(el => el.id != pro_id)
             localStorage.setItem("cart", JSON.stringify(state))
         },
         clearCart: (state: Cart) => {

@@ -5,5 +5,8 @@ export const useWishlist = () => {
     if (!wishlist) {
         throw new Error("Not Found")
     }
-    return { wishlist, dispatch }
+    const length = React.useMemo(() => {
+        return wishlist.length
+    }, [wishlist])
+    return { wishlist, dispatch, length }
 }

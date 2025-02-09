@@ -5,19 +5,20 @@ import { useToast } from "@/hooks/use-toast"
 import { Link } from "react-router-dom";
 import { ToastAction } from "../ui/toast";
 
-const ProductItem = React.memo(({ product }: { product: Product }): React.JSX.Element => {
+const ProductItem = React.memo(({ product }: { product: Partial<Product> }): React.JSX.Element => {
     const { wishlist, dispatch } = useWishlist()
     const { dispatch: cartAction, addOrUpdateItem } = useCart()
     const contain = React.useMemo(() => {
-        return wishlist.some(el => el.pro_id == product.id)
+        return wishlist.some(el => el.id == product.id)
     }, [wishlist])
     const { toast } = useToast()
     const toogleWishlish = React.useCallback(() => {
         dispatch({
             type: "AddOrDelete", payload: {
-                pro_id: product.id, name: product.title,
-                image: product.thumbnail,
-                price: product.price,
+                id: product.id ?? 0,
+                title: product.title ?? "",
+                thumbnail: product.thumbnail ?? "",
+                price: product.price ?? 0,
                 qty: 1,
                 subtotal: 0
             }
@@ -30,8 +31,8 @@ const ProductItem = React.memo(({ product }: { product: Product }): React.JSX.El
     }, [])
     const addCart = React.useCallback(() => {
         cartAction(addOrUpdateItem({
-            pro_id: product.id, name: product.title,
-            image: product.thumbnail,
+            id: product.id, title: product.title,
+            thumbnail: product.thumbnail,
             price: product.price,
             qty: 1,
             subtotal: 0

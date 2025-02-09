@@ -1,8 +1,8 @@
 declare global {
     interface CartItem {
-        pro_id: number,
-        name: string,
-        image: string,
+        id: number,
+        title: string,
+        thumbnail: string,
         price: number,
         qty: number,
         subtotal: number

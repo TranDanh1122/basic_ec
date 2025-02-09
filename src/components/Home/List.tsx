@@ -9,14 +9,14 @@ import {
 import { useQuery } from "@tanstack/react-query";
 import Loading from "../Shared/Loading";
 import ProductItem from "./ProductItem";
-interface Props {
+interface Props<T extends Category | Product> {
     className: string,
     subtitle: string,
     title: string,
     type: string,
-    callback: () => Promise<unknown[]>,
+    callback: () => Promise<T[]>,
 }
-const List = React.memo(({ className, subtitle, title, type, callback }: Props): React.JSX.Element => {
+const List = <T extends Category | Product>({ className, subtitle, title, type, callback }: Props<T>): React.JSX.Element => {
     const { data: items, isLoading, isError } = useQuery({
         queryKey: [title],
         queryFn: callback
@@ -53,6 +53,6 @@ const List = React.memo(({ className, subtitle, title, type, callback }: Props):
         </Carousel>
 
     </div>
-})
+}
 List.displayName = "List"
-export default List
+export default React.memo(List) as <T extends Category | Product>(props: Props<T>) => React.JSX.Element
