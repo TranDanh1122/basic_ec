@@ -19,6 +19,7 @@ const cartSlicer = createSlice({
                 return
             }
             state.cart.push(item as CartItem)
+            state.cart.filter(el => el.qty > 0)
             state.cart.forEach(el => { el.subtotal = el.price * el.qty })
             state.total = state.cart.reduce((sum, current) => {
                 return sum + current.subtotal

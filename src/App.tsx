@@ -8,21 +8,24 @@ import Cart from "./pages/Cart"
 import ProductDetail from "./pages/ProductDetail"
 import About from "./pages/About"
 import Layout from "./Layout/Layout"
+import WishLishContextProvider from "./context/WishListContext"
 function App() {
 
   return (
     <>
-      <Layout>
-        <Routes>
-          <Route path="/" index element={<Home />} />
-          <Route path="/auth" element={<Auth />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/wishlist" element={<WishLish />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/product/:id" element={<ProductDetail />} />
-          <Route path="/about" element={<About />} />
-        </Routes>
-      </Layout>
+      <WishLishContextProvider>
+        <Layout>
+          <Routes>
+            <Route path="/" index element={<Home />} />
+            <Route path="/auth" element={<Auth />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/wishlist" element={<WishLish />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/product/:id" element={<ProductDetail />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
+        </Layout>
+      </WishLishContextProvider>
     </>
   )
 }
