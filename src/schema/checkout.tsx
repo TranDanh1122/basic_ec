@@ -7,12 +7,7 @@ export const CheckoutForm = z.object({
     st_address: z.coerce.string().min(2),
     op_address: z.coerce.string().optional(),
     city: z.coerce.string().min(2),
-    phone: z.coerce.number({
-        required_error: "Phone is required",
-        invalid_type_error: "Invaid phone number",
-    }).positive().refine((val) => val.toString().length < 11 && val.toString().length < 10, {
-        message: "Invalid Phone"
-    }),
+    phone: z.string().regex(/^\d{10}$/, { message: "Invalid phone number" }),
     email: z.coerce.string({ message: "Email is required" }).email({ message: "Invalid Email" })
 })
 export type CheckoutFormType = z.infer<typeof CheckoutForm>
@@ -22,7 +17,7 @@ export const initCheckoutData = {
     st_address: "",
     op_address: "",
     city: "",
-    phone: 0,
+    phone: "",
     email: ""
 }
 export const checkoutFormUI = [
