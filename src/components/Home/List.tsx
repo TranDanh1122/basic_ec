@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/carousel"
 import { useQuery } from "@tanstack/react-query";
 import Loading from "../Shared/Loading";
-import { useWishlist } from "@/hooks/useWishlist";
+import ProductItem from "./ProductItem";
 interface Props {
     className: string,
     subtitle: string,
@@ -42,7 +42,7 @@ const List = React.memo(({ className, subtitle, title, type, callback }: Props):
                 {type == "product" &&
                     (items as Product[])?.map((el: Product) =>
                         <CarouselItem key={el.id} className="pl-0 basis-[calc(25%-8px)]">
-                            <Product key={el.id} product={el}></Product>
+                            <ProductItem key={el.id} product={el}></ProductItem>
                         </CarouselItem>
                     )
                 }
@@ -56,30 +56,3 @@ const List = React.memo(({ className, subtitle, title, type, callback }: Props):
 })
 List.displayName = "List"
 export default List
-const Product = React.memo(({ product }: { product: Product }): React.JSX.Element => {
-    const { wishlist, dispatch } = useWishlist()
-    const contain = React.useMemo(() => {
-        return wishlist.some(el => el.pro_id == product.id)
-    }, [wishlist])
-    return <div className="w-full">
-        <div className="max-h-[250px] w-full aspect-square bg-neutral-300 flex items-center justify-center rounded-sm relative">
-            <img loading="lazy" src={product.thumbnail} alt={product.title} className="rounded-sm w-[190px] h-[180px] object-contain" />
-            <span onClick={() => dispatch({
-                type: "AddOrDelete", payload: {
-                    pro_id: product.id, name: product.title,
-                    image: product.thumbnail,
-                    price: product.price,
-                    qty: 1,
-                    subtotal: 0
-                }
-            })} className={`${contain ? "bg-[#DB4444]" : "bg-white"} top-4 right-4 absolute rounded-full p-1 cursor-pointer`}>
-                <i className={`${contain ? "bg-white" : "bg-black"} block w-6 h-6`} style={{
-                    mask: "url(/assets/heart.svg) center / cover no-repeat",
-                    WebkitMask: "url(/assets/heart.svg) center / cover no-repeat"
-                }}></i>
-            </span>
-        </div>
-        <h3 className="font-medium text-base leading-6 mt-4 mb-2">{product.title}</h3>
-        <span className="font-medium test-base text-[#DB4444]">${product.price}</span>
-    </div>
-})

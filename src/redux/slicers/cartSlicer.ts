@@ -26,7 +26,7 @@ const cartSlicer = createSlice({
             }, 0)
             localStorage.setItem("cart", JSON.stringify(state))
         },
-        deleteItem: (state: Cart, action: PayloadAction<string>) => {
+        deleteItem: (state: Cart, action: PayloadAction<number>) => {
             const pro_id = action.payload
             state.cart = state.cart.filter(el => el.pro_id != pro_id)
             localStorage.setItem("cart", JSON.stringify(state))
