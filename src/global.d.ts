@@ -59,5 +59,11 @@ declare global {
         thumbnail: string;
         images: string[];
     }
+    type Sort = "asc" | "desc"
+    interface Filter {
+        search: string,
+        sort: Sort
+        skip: number,
+    }
 }
 export { }

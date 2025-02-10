@@ -34,7 +34,7 @@ export const userThunk = createAsyncThunk("redux/user-thunk", async (_, { reject
 })
 export const refreshThunk = createAsyncThunk("redux/refresh-thunk", async (_, { rejectWithValue }) => {
     try {
-        const response = await AuthAPI.refresh(localStorage.getItem("ref_token") ?? "")
+        const response = await AuthAPI.refresh(localStorage.getItem("danh_refreshToken") ?? "")
         return response.data
     } catch (error) {
         return rejectWithValue("Error" + error)
