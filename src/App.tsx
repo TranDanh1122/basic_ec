@@ -12,6 +12,7 @@ import Checkout from "./pages/Checkout"
 import { useAuth } from "./hooks/useAuth"
 import React from "react"
 import { toast } from "./hooks/use-toast"
+import NotFound from "./pages/NotFound"
 function App() {
   const { dispatch, userThunk, accessToken, error, deleteError } = useAuth()
   React.useEffect(() => {
@@ -36,7 +37,8 @@ function App() {
             <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/about" element={<About />} />
             <Route path="/checkout" element={<Checkout />} />
-
+            {/* Route 404 */}
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>
       </WishLishContextProvider>
