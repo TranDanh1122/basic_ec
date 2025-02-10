@@ -48,8 +48,8 @@ const authSlicer = createSlice({
             state.user = {} as User
             state.accessToken = ""
             state.refreshToken = ""
-            localStorage.setItem("danh_accessToken", "")
-            localStorage.setItem("danh_refreshToken", "")
+            localStorage.removeItem("danh_accessToken")
+            localStorage.removeItem("danh_refreshToken")
         },
         deleteError: (state: AuthState) => {
             state.error = ""
@@ -62,7 +62,6 @@ const authSlicer = createSlice({
             state.loading = false
             state.accessToken = action.payload.accessToken
             state.refreshToken = action.payload.refreshToken
-            console.log(2);
             localStorage.setItem("danh_accessToken", action.payload.accessToken)
             localStorage.setItem("danh_refreshToken", action.payload.refreshToken)
         }).addCase(loginThunk.rejected, (state: AuthState, action: PayloadAction<unknown>) => {

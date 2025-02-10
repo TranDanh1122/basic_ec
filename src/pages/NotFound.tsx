@@ -1,7 +1,7 @@
 import BreadcrumbCPN from "@/components/Shared/BreadcrumbCPN";
 import { Button } from "@/components/ui/button";
 import React from "react";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 export default function NotFound(): React.JSX.Element {
     return <>
         <BreadcrumbCPN items={[{ name: "Home", link: "/" }, { name: "NotFound", link: "/404" }]} />

@@ -25,7 +25,7 @@ export default function Auth(): React.JSX.Element {
     const { dispatch, loginThunk } = useAuth()
     const onSubmit = async (data: z.infer<typeof schema>) => {
         try {
-            await dispatch(loginThunk({ username: data.email, password: data.password }))
+            await dispatch(loginThunk({ username: data.email, password: data.password })).unwrap()
             navigate("/")
         } catch (error) {
             console.log(error);

@@ -47,11 +47,11 @@ const Header = React.memo((): React.JSX.Element => {
 Header.displayName = "Header"
 export default Header
 const UserMenu = React.memo((): React.JSX.Element => {
-    const { dispatch, logout } = useAuth()
+    const { dispatch, logout, user } = useAuth()
 
     return <DropdownMenu>
         <DropdownMenuTrigger asChild>
-            <User />
+          <> <User /> {user.username}</> 
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-56 bg-white">
             <DropdownMenuLabel>My Account</DropdownMenuLabel>
