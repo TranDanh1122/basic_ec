@@ -35,10 +35,10 @@ function App() {
             <Route path="/auth/:type" element={<Auth />} />
             <Route path="/wishlist" element={<WishLish />} />
             <Route path="/cart" element={<Cart />} />
-            <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/about" element={<About />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/products" element={<ProductList />} />
+            <Route path="/products/:id" element={<ProductDetail />} />
             {/* Route 404 */}
             <Route path="*" element={<NotFound />} />
           </Routes>

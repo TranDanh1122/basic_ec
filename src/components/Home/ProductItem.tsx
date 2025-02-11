@@ -46,7 +46,9 @@ const ProductItem = React.memo(({ product }: { product: Partial<Product> }): Rea
     }, [])
     return <div className="w-full">
         <div className="max-h-[250px] w-full aspect-square bg-neutral-300 flex items-center justify-center rounded-sm relative">
-            <img loading="lazy" src={product.thumbnail} alt={product.title} className="rounded-sm w-[190px] h-[180px] object-contain" />
+            <Link to={`/products/${product.id}`}>
+                <img loading="lazy" src={product.thumbnail} alt={product.title} className="rounded-sm w-[190px] h-[180px] object-contain" />
+            </Link>
             <span onClick={toogleWishlish} className={`${contain ? "bg-[#DB4444]" : "bg-white"} top-4 right-4 absolute rounded-full p-1 cursor-pointer`}>
                 <i className={`${contain ? "bg-white" : "bg-black"} block w-6 h-6`} style={{
                     mask: "url(/assets/heart.svg) center / cover no-repeat",
@@ -60,7 +62,7 @@ const ProductItem = React.memo(({ product }: { product: Partial<Product> }): Rea
                 }}></i>
             </span>
         </div>
-        <h3 className="font-medium text-base leading-6 mt-4 mb-2">{product.title}</h3>
+        <h3 className="font-medium text-base leading-6 mt-4 mb-2"><Link to={`/products/${product.id}`}>{product.title}</Link> </h3>
         <span className="font-medium test-base text-[#DB4444]">${product.price}</span>
     </div>
 })

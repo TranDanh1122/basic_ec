@@ -18,9 +18,9 @@ export const ProductAPI = {
                 query.append("skip", filter.skip.toString())
                 query.append("limit", "4")
             }
-
         }
-
         return api.get(`${url}?${query.toString()}`)
-    }
+    },
+    getProductByID: (id: string) => api.get(`/products/${id}`),
+    getProductsByCategory: (category: string) => api.get(`/products/category/${category}`),
 }

@@ -16,7 +16,7 @@ const Header = React.memo((): React.JSX.Element => {
         </span>
         <nav className="flex items-center justify-between pt-12 pb-6 border-b-[1px] border-solid border-black/50 container mx-auto">
             <Link to="/"> <img src="/assets/logo.svg" alt="logo" className="w-32 h-6 object-cover " /></Link>
-            <ul className="text-base leading-6 flex items-center justify-start gap-12 font-medium">
+            <ul className="text-base leading-6 flex items-center justify-start gap-12 font-medium"> 
                 <li><NavLink to="/" className={({ isActive }) =>
                     `border-b-[1px] border-solid ${isActive ? "border-black/50" : "border-transparent"}`
                 }>Home</NavLink></li>

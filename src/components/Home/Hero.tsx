@@ -7,6 +7,7 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel"
+import Autoplay from "embla-carousel-autoplay"
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { ProductAPI } from "@/api/ProductAPI";
@@ -15,7 +16,11 @@ import { Skeleton } from "@/components/ui/skeleton"
 const Hero = React.memo((): React.JSX.Element => {
     return <div className=" flex items-center ">
         <SideMenu className="w-1/6 pr-4 border-r-[1px] border-solid border-black/30 py-10"></SideMenu>
-        <Carousel className="w-5/6 pl-10 py-10">
+        <Carousel plugins={[
+            Autoplay({
+                delay: 3000,
+            }),
+        ]} className="w-5/6 pl-10 py-10">
             <CarouselContent className="max-h-[400px]">
                 <CarouselItem >
                     <img src="/assets/banner.jpg" className="w-full h-full object-cover" />
