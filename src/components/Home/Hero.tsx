@@ -14,13 +14,26 @@ import { ProductAPI } from "@/api/ProductAPI";
 import { Skeleton } from "@/components/ui/skeleton"
 
 const Hero = React.memo((): React.JSX.Element => {
+    const [side, setSide] = React.useState<boolean>(false)
+    React.useEffect(() => {
+        const showHideSide = () => {
+            if (window.innerWidth > 1023) {
+                setSide(true)
+            } else {
+                setSide(false)
+            }
+        }
+        showHideSide()
+        window.addEventListener("resize", showHideSide)
+        return () => window.removeEventListener("resize", showHideSide)
+    }, [])
     return <div className=" flex items-center ">
-        <SideMenu className="w-1/6 pr-4 border-r-[1px] border-solid border-black/30 py-10"></SideMenu>
+        {side && <SideMenu className="w-1/6 pr-4 border-r-[1px] border-solid border-black/30 py-10 hidden lg:block"></SideMenu>}
         <Carousel plugins={[
             Autoplay({
                 delay: 3000,
             }),
-        ]} className="w-5/6 pl-10 py-10">
+        ]} className="lg:w-5/6 w-full lg:pl-10 pl-0 py-10">
             <CarouselContent className="max-h-[400px]">
                 <CarouselItem >
                     <img src="/assets/banner.jpg" className="w-full h-full object-cover" />
@@ -32,7 +45,7 @@ const Hero = React.memo((): React.JSX.Element => {
                     <img loading="lazy" src="/assets/banner3.jpg" className="w-full h-full object-cover" />
                 </CarouselItem>
             </CarouselContent>
-            <CarouselPrevious className="left-5 bg-white border-0 shadow-lg" />
+            <CarouselPrevious className="lg:left-5 -left-5 bg-white border-0 shadow-lg" />
             <CarouselNext className="-right-5 bg-white border-0 shadow-lg" />
         </Carousel>
 
