@@ -7,8 +7,7 @@ import {
     CarouselPrevious,
 } from "@/components/ui/carousel"
 import { useQuery } from "@tanstack/react-query";
-import Loading from "../Shared/Loading";
-import ProductItem from "./ProductItem";
+import ProductItem, { ProductItemSkeleton } from "./ProductItem";
 interface Props<T extends Category | Product> {
     className: string,
     subtitle: string,
@@ -21,7 +20,11 @@ const List = <T extends Category | Product>({ className, subtitle, title, type, 
         queryKey: [title],
         queryFn: callback
     })
-    if (isLoading) return <div className={` ${className}`}><Loading /></div>
+    if (isLoading) return <div className={` ${className} flex gap-8 items-center`}>
+        {
+            Array.from({ length: 4 }).map(_ => <div className="basis-[calc(25%-24px)]"><ProductItemSkeleton /></div>)
+        }
+    </div>
     if (isError) return <></>
     return <div className={`${className}`}>
         <span className="text-[#DB4444] font-semibold text-base 
@@ -33,7 +36,7 @@ const List = <T extends Category | Product>({ className, subtitle, title, type, 
 
                 {type == "category" &&
                     (items as Category[])?.map((el: Category) =>
-                        <CarouselItem  key={el.name} className="flex items-center justify-center gap-4 flex-col pl-0 basis-[calc(16.666667%-16px)] 
+                        <CarouselItem key={el.name} className="flex items-center justify-center gap-4 flex-col pl-0 basis-[calc(16.666667%-16px)] 
                         border-solid border-[1px] border-black py-6 rounded-sm hover:bg-[#DB4444] hover:text-white">
                             <img src="/assets/category.svg" alt={el.name} className="w-14 h-14 object-cover" />
                             <h2 className="text-base leading-6">{el.name}</h2>

@@ -4,6 +4,7 @@ import { useCart } from "@/hooks/useCart";
 import { useToast } from "@/hooks/use-toast"
 import { Link } from "react-router-dom";
 import { ToastAction } from "../ui/toast";
+import { Skeleton } from "../ui/skeleton";
 
 const ProductItem = React.memo(({ product }: { product: Partial<Product> }): React.JSX.Element => {
     const { wishlist, dispatch } = useWishlist()
@@ -65,3 +66,12 @@ const ProductItem = React.memo(({ product }: { product: Partial<Product> }): Rea
 })
 ProductItem.displayName = "ProductItem"
 export default ProductItem
+export const ProductItemSkeleton = (): React.JSX.Element => {
+    return <div className="w-full ">
+        <div className="max-h-[250px] w-full aspect-square bg-neutral-300 flex items-center justify-center rounded-sm relative">
+            <Skeleton className="rounded-sm w-[190px] h-[180px]" />
+        </div>
+        <Skeleton className=" mt-4 mb-2 h-6 bg-neutral-300"></Skeleton>
+        <Skeleton className=" h-6 w-1/5 bg-neutral-300"></Skeleton>
+    </div>
+}

@@ -9,7 +9,7 @@ const Header = React.memo((): React.JSX.Element => {
     const { length } = useWishlist()
     const { length: cartLength } = useCart()
     const { user } = useAuth()
- 
+
     return <header >
         <span className="text-white  text-[14px] leading-[24px] text-center block bg-black py-3">
             Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%! <span className="font-semibold">ShopNow</span>
@@ -50,20 +50,21 @@ const UserMenu = React.memo((): React.JSX.Element => {
     const { dispatch, logout, user } = useAuth()
 
     return <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <> <User /> {user.username}</> 
+        <DropdownMenuTrigger className="flex items-center focus-visible:border-none">
+            <User />
+            {user.username}
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-56 bg-white">
             <DropdownMenuLabel>My Account</DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
+            {/* <DropdownMenuItem>
                 <Link className="flex gap-2" to={"/profile"}>
                     <User />
                     <span>My Profile</span>
                 </Link>
 
             </DropdownMenuItem>
-            <DropdownMenuSeparator />
+            <DropdownMenuSeparator /> */}
             <DropdownMenuItem onClick={() => dispatch(logout())}>
                 <LogOut />
                 <span>Log out</span>

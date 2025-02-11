@@ -1,9 +1,8 @@
 import { ProductAPI } from "@/api/ProductAPI";
-import ProductItem from "@/components/Home/ProductItem";
+import ProductItem, { ProductItemSkeleton } from "@/components/Home/ProductItem";
 import BreadcrumbCPN from "@/components/Shared/BreadcrumbCPN";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useDebound } from "@/hooks/useDebound";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { SortAsc, SortDesc } from "lucide-react";
 import React from "react";
@@ -47,12 +46,18 @@ export default function ProductList(): React.JSX.Element {
         <BreadcrumbCPN items={[{ name: "Home", link: "/" }, { name: "Products", link: "/products" }]} />
         <div className="flex items-center justify-between my-8">
             <Input className="w-4/5" placeholder="Search some thing..." onChange={handleChange} />
-            <div  onClick={() => setFilter((fil) => ({ ...fil, sort: filter.sort == "asc" ? "desc" : "asc" }))}>
+            <div onClick={() => setFilter((fil) => ({ ...fil, sort: filter.sort == "asc" ? "desc" : "asc" }))}>
                 {filter.sort == "asc" && <SortAsc />}
                 {filter.sort == "desc" && <SortDesc />}
             </div>
         </div>
-        {isLoading && <div className="w-10 h-10 border-2 animate-spin mx-auto my-20"></div>}
+        {isLoading &&
+            <div className={` flex gap-8 items-center`}>
+                {
+                    Array.from({ length: 4 }).map(_ => <div className="basis-[calc(25%-24px)]"><ProductItemSkeleton /></div>)
+                }
+            </div>
+        }
         {
             !isLoading && <div className="flex items-center justify-center gap-4 flex-wrap gap-y-6">
                 {data &&
@@ -69,11 +74,7 @@ export default function ProductList(): React.JSX.Element {
                         {isFetchingNextPage ? <div className="w-5 h-5 border-2 animate-spin"></div> : "Load more"}
                     </Button>
                 </div>}
-
             </div>
-
         }
-
-
     </div>
 }
