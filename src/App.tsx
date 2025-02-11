@@ -14,6 +14,7 @@ import React from "react"
 import { toast } from "./hooks/use-toast"
 import NotFound from "./pages/NotFound"
 import ProductList from "./pages/ProductList"
+import Contact from "./pages/Contact"
 
 function App() {
   const { dispatch, userThunk, accessToken, error, deleteError } = useAuth()
@@ -40,6 +41,7 @@ function App() {
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/products" element={<ProductList />} />
             <Route path="/products/:id" element={<ProductDetail />} />
+            <Route path="/contact" element={<Contact />} />
             {/* Route 404 */}
             <Route path="*" element={<NotFound />} />
           </Routes>
