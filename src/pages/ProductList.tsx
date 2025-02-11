@@ -13,7 +13,7 @@ const defaultFilter: Filter = {
 }
 export default function ProductList(): React.JSX.Element {
     const [filter, setFilter] = React.useState<Filter>(defaultFilter);
-    const debound = React.useRef<number>(null)
+    const debound = React.useRef<number|NodeJS.Timeout>(null)
 
     const { data: queryData, fetchNextPage, isFetchingNextPage, hasNextPage, isLoading } = useInfiniteQuery({
         queryKey: ["products", filter],
@@ -22,7 +22,7 @@ export default function ProductList(): React.JSX.Element {
             const response = await ProductAPI.products({ ...filter, skip: pageParam })
             return response.data
         },
-        getNextPageParam: (lastPage, pages) => {
+        getNextPageParam: (lastPage, _) => {
             const nextSkip = lastPage.skip + 4
             return nextSkip < lastPage.total ? nextSkip : undefined
         },
