@@ -14,6 +14,7 @@ import React from "react"
 import { toast } from "./hooks/use-toast"
 import NotFound from "./pages/NotFound"
 import ProductList from "./pages/ProductList"
+
 function App() {
   const { dispatch, userThunk, accessToken, error, deleteError } = useAuth()
   React.useEffect(() => {
