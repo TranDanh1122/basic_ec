@@ -13,7 +13,7 @@ const defaultFilter: Filter = {
 }
 export default function ProductList(): React.JSX.Element {
     const [filter, setFilter] = React.useState<Filter>(defaultFilter);
-    const debound = React.useRef<number|NodeJS.Timeout>(null)
+    const debound = React.useRef<number | NodeJS.Timeout>(null)
 
     const { data: queryData, fetchNextPage, isFetchingNextPage, hasNextPage, isLoading } = useInfiniteQuery({
         queryKey: ["products", filter],
@@ -52,16 +52,16 @@ export default function ProductList(): React.JSX.Element {
             </div>
         </div>
         {isLoading &&
-            <div className={` flex gap-8 items-center`}>
+            <div className={` flex gap-8 items-center flex-wrap`}>
                 {
-                    Array.from({ length: 4 }).map(_ => <div className="basis-[calc(25%-24px)]"><ProductItemSkeleton /></div>)
+                    Array.from({ length: 4 }).map(_ => <div className="lg:w-[calc(25%-12px)] md:w-[calc(50%-16px)] w-full"><ProductItemSkeleton /></div>)
                 }
             </div>
         }
-        {
-            !isLoading && <div className="flex items-center justify-center gap-4 flex-wrap gap-y-6">
+        {!isLoading &&
+            <div className="flex items-center justify-center gap-4 flex-wrap gap-y-6">
                 {data &&
-                    data.map((el: Product) => <div key={el.id} className="w-[calc(25%-12px)]">
+                    data.map((el: Product) => <div key={el.id} className="lg:w-[calc(25%-12px)] md:w-[calc(50%-8px)] w-full">
                         <ProductItem product={el}></ProductItem>
                     </div>)
                 }

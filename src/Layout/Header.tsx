@@ -11,6 +11,7 @@ const Header = React.memo((): React.JSX.Element => {
     const [isMobile, setMobile] = React.useState<boolean>(true)
     const handleResize = React.useCallback(() => setMobile(window.innerWidth < 1024), [])
     React.useEffect(() => {
+        handleResize()
         window.addEventListener("resize", handleResize)
         return () => window.removeEventListener("resize", handleResize)
     }, [])

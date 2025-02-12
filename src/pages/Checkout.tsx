@@ -22,9 +22,9 @@ export default function Checkout(): React.JSX.Element {
     }
     return <>
         <BreadcrumbCPN items={[{ name: "Home", link: "/" }, { name: "Checkout", link: "/checkout" }]} />
-        <div className="flex items-start justify-between">
+        <div className="flex lg:flex-row flex-col-reverse items-start justify-between gap-y-8">
             <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} id="checkout" className="space-y-8 w-2/5">
+                <form onSubmit={form.handleSubmit(onSubmit)} id="checkout" className="space-y-8 lg:w-2/5 w-full shadow-lg p-4">
                     {
                         checkoutFormUI.map(el => <FormField
                             control={form.control}
@@ -44,7 +44,7 @@ export default function Checkout(): React.JSX.Element {
                     }
                 </form>
             </Form>
-            <Card className="w-2/5">
+            <Card className="lg:w-2/5 w-full">
                 <CardHeader>
                     <CardTitle>Checkout</CardTitle>
                 </CardHeader>

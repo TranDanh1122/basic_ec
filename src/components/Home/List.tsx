@@ -20,9 +20,9 @@ const List = <T extends Category | Product>({ className, subtitle, title, type, 
         queryKey: [title],
         queryFn: callback
     })
-    if (isLoading) return <div className={` ${className} flex gap-8 items-center`}>
+    if (isLoading) return <div className={` ${className} flex flex-wrap gap-8 items-center`}>
         {
-            Array.from({ length: 4 }).map(_ => <div className="basis-[calc(25%-24px)]"><ProductItemSkeleton /></div>)
+            Array.from({ length: 4 }).map(_ => <div className="lg:w-[calc(25%-24px)] md:w-[calc(50%-16px)] w-[100%]"><ProductItemSkeleton /></div>)
         }
     </div>
     if (isError) return <></>

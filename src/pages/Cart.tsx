@@ -21,7 +21,7 @@ export default function Cart(): React.JSX.Element {
     const current = cart.slice((page - 1) * 3, page * 3)
     return <>
         <BreadcrumbCPN items={[{ name: "Home", link: "/" }, { name: "Cart", link: "/cart" }]} />
-        <div className="flex gap-8">
+        <div className="flex lg:flex-row flex-col gap-8">
             <Table >
                 <TableHeader className="text-base leading-6">
                     <TableRow className="border-none shadow-lg ">
@@ -70,7 +70,7 @@ export default function Cart(): React.JSX.Element {
                 </TableFooter>
             </Table>
 
-            <Card className="w-1/4 border-none">
+            <Card className="lg:w-1/4 w-full border-none">
                 <CardHeader>
                     <CardTitle>Cart Total</CardTitle>
                 </CardHeader>
@@ -98,7 +98,7 @@ export default function Cart(): React.JSX.Element {
 
                 </CardContent>
                 <CardFooter>
-                    <Button className="bg-[#DB4444] hover:opacity-75 text-white w-full mt-10 cursor-pointer"><Link to={"/checkout"}>Checkout</Link></Button>
+                <Link to={"/checkout"} className="block w-full"><Button className="bg-[#DB4444] hover:opacity-75 text-white w-full mt-10 cursor-pointer">Checkout</Button></Link>
 
                 </CardFooter>
             </Card>
