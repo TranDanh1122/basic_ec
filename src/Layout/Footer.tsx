@@ -3,25 +3,25 @@ import React from "react";
 const Footer = React.memo((): React.JSX.Element => {
     return <>
         <div className="container mx-auto flex flex-wrap items-center justify-center gap-y-8 text-center mt-52 mb-40">
-            <div className="lg:w-1/3 w-1/2 ">
+            <div className="lg:w-1/3 md:w-1/2 w-full">
                 <img src="/assets/ship.png" alt="ship" className="w-20 aspect-square object-cover mx-auto" />
                 <h3 className="text-[20px] leading-7 font-semibold mt-6 mb-2">FREE AND FAST DELIVERY</h3>
                 <span className="text-[14px] leading-5 block">Free delivery for all orders over $140</span>
             </div>
-            <div className="lg:w-1/3 w-1/2">
+            <div className="lg:w-1/3 md:w-1/2 w-full">
                 <img src="/assets/svc.png" alt="svc" className="w-20 aspect-square object-cover mx-auto" />
                 <h3 className="text-[20px] leading-7 font-semibold mt-6 mb-2">24/7 CUSTOMER SERVICE</h3>
                 <span className="text-[14px] leading-5 block">Friendly 24/7 customer support</span>
             </div>
-            <div className="lg:w-1/3 w-1/2">
+            <div className="lg:w-1/3 md:w-1/2 w-full">
                 <img src="/assets/money.png" alt="money" className="w-20 aspect-square object-cover mx-auto" />
                 <h3 className="text-[20px] leading-7 font-semibold mt-6 mb-2">MONEY BACK GUARANTEE</h3>
                 <span className="text-[14px] leading-5 block">We reurn money within 30 days</span>
             </div>
         </div>
         <footer className="bg-black text-white">
-            <div className="container mx-auto flex items-start justify-between pt-20 pb-16">
-                <div className="flex flex-col gap-6">
+            <div className="container mx-auto flex lg:flex-nowrap flex-wrap gap-y-8 items-start justify-between pt-20 pb-16">
+                <div className="flex flex-col gap-6 md:w-1/2 w-full lg:w-auto">
                     <i className="block bg-white w-32 h-6" style={{
                         mask: "url(/assets/logo.svg) center / cover",
                         WebkitMask: "url(/assets/logo.svg) center / cover",
@@ -36,13 +36,13 @@ const Footer = React.memo((): React.JSX.Element => {
                         }}></i>
                     </div>
                 </div>
-                <div className="flex flex-col gap-6">
+                <div className="flex flex-col gap-6  md:w-1/2 w-full  lg:w-auto">
                     <h2 className=" text-[20px] leading-7 font-medium">Support</h2>
                     <p>111 Bijoy sarani, Dhaka,  DH 1515, Bangladesh.</p>
                     <a href="mailto:exclusive@gmail.com">exclusive@gmail.com</a>
                     <a href="tel:+88015-88888-9999">+88015-88888-9999</a>
                 </div>
-                <div className="flex flex-col gap-6">
+                <div className="lg:flex hidden flex-col gap-6">
                     <h2 className=" text-[20px] leading-7 font-medium">Account</h2>
                     <a href="#">My Account</a>
                     <a href="#">Login / Register</a>
@@ -50,14 +50,14 @@ const Footer = React.memo((): React.JSX.Element => {
                     <a href="#">Wishlist</a>
                     <a href="#">Shop</a>
                 </div>
-                <div className="flex flex-col gap-6">
+                <div className="lg:flex hidden flex-col gap-6 w-auto">
                     <h2 className=" text-[20px] leading-7 font-medium">Quick Link</h2>
                     <a href="#">Privacy Policy</a>
                     <a href="#">Terms Of Use</a>
                     <a href="#">FAQ</a>
                     <a href="#">Contact</a>
                 </div>
-                <div className="flex flex-col gap-6">
+                <div className="flex flex-col md:items-center items-start gap-6 w-full lg:w-auto">
                     <h2 className=" text-[20px] leading-7 font-medium">Download App</h2>
                     <div>
                         <span className="text-white/70 font-medium text-[12px] leading-4.5">Save $3 with App New User Only</span>
