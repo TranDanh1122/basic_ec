@@ -110,14 +110,14 @@ const ProductInfomation = React.memo(({ product }: { product: Product }) => {
             <h1 className="text-2xl font-semibold ">{product.title}</h1>
             <p className="text-2xl">${product.price}</p>
             <p className="text-[14px] leading-5 ">{product.description}</p>
-            <div className="flex items-stretch gap-4 lg:flex-nowrap flex-wrap">
-                <div className="flex items-center justify-between">
+            <div className="flex items-stretch gap-4 lg:flex-nowrap flex-wrap justify-between">
+                <div className="flex items-center justify-between w-[calc(80%-8px)] lg:w-auto">
                     <Button onClick={() => addOrMinus("minus")} className="bg-[#DB4444] rounded-none text-white font-extrabold ">-</Button>
                     <Input ref={input} onChange={(e) => onChange(e)} defaultValue={input.current?.value ?? "1"} className="rounded-none text-center font-bold focus-visible:ring-0 focus-visible:ring-offset-0"></Input>
                     <Button onClick={() => addOrMinus("add")} className="bg-[#DB4444] rounded-none text-white font-extrabold">+</Button>
                 </div>
                 <Button onClick={addCart} className="bg-[#DB4444] rounded-none text-white font-extrabold lg:order-2 order-3 w-full">Add to cart</Button>
-                <WishLishIcon className="order-2 lg:order-3" product={product} />
+                <WishLishIcon className="order-2 lg:order-3 w-[calc(20%-8px)] lg:w-auto" product={product} />
             </div>
 
         </div>
