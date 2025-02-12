@@ -64,7 +64,7 @@ const CustomCarousel = React.memo(({ images, thumbnail }: { images: string[] | u
                     </CarouselItem>)
                 }
             </CarouselContent>
-            <CarouselPrevious className="lg:-top-5 -left-2 bg-white border-0 shadow-lg" />
+            <CarouselPrevious className="lg:-top-5 lg:left-[50%] lg:translate-x-[-50%] -left-2 bg-white border-0 shadow-lg" />
             <CarouselNext className="lg:-bottom-5 right-2 bg-white border-0 shadow-lg" />
         </Carousel>
         {!isMobile && <img src={thumbnail} className=" lg:w-1/2 w-[calc(100%-202px)] aspect-[5/6] bg-neutral-200 lg:max-w-[500px] max-w-none  object-contain" ref={mainImg} />}
