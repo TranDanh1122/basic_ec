@@ -36,3 +36,8 @@ To start the development server:
 npm run dev
 ```
 
+Test login account:
+
+```sh 
+emilys/emilyspass
+```
