@@ -15,14 +15,8 @@ import { Skeleton } from "@/components/ui/skeleton"
 
 const Hero = React.memo((): React.JSX.Element => {
     const [side, setSide] = React.useState<boolean>(false)
+    const showHideSide = React.useCallback(() => { setSide(window.innerWidth > 1023) }, [])
     React.useEffect(() => {
-        const showHideSide = () => {
-            if (window.innerWidth > 1023) {
-                setSide(true)
-            } else {
-                setSide(false)
-            }
-        }
         showHideSide()
         window.addEventListener("resize", showHideSide)
         return () => window.removeEventListener("resize", showHideSide)
@@ -54,7 +48,7 @@ const Hero = React.memo((): React.JSX.Element => {
 Hero.displayName = "Hero"
 export default Hero
 
-const SideMenu = React.memo((props: { className?: string }) => {
+const SideMenu = React.memo((props: { className?: string }) => {    
     const { data: categories, isLoading } = useQuery({
         queryKey: ['categories'],
         queryFn: async () => {

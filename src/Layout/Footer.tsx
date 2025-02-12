@@ -2,18 +2,18 @@ import { Input } from "@/components/ui/input";
 import React from "react";
 const Footer = React.memo((): React.JSX.Element => {
     return <>
-        <div className="container mx-auto flex items-center text-center mt-52 mb-40">
-            <div className="w-1/3">
+        <div className="container mx-auto flex flex-wrap items-center justify-center gap-y-8 text-center mt-52 mb-40">
+            <div className="lg:w-1/3 w-1/2 ">
                 <img src="/assets/ship.png" alt="ship" className="w-20 aspect-square object-cover mx-auto" />
                 <h3 className="text-[20px] leading-7 font-semibold mt-6 mb-2">FREE AND FAST DELIVERY</h3>
                 <span className="text-[14px] leading-5 block">Free delivery for all orders over $140</span>
             </div>
-            <div className="w-1/3">
+            <div className="lg:w-1/3 w-1/2">
                 <img src="/assets/svc.png" alt="svc" className="w-20 aspect-square object-cover mx-auto" />
                 <h3 className="text-[20px] leading-7 font-semibold mt-6 mb-2">24/7 CUSTOMER SERVICE</h3>
                 <span className="text-[14px] leading-5 block">Friendly 24/7 customer support</span>
             </div>
-            <div className="w-1/3">
+            <div className="lg:w-1/3 w-1/2">
                 <img src="/assets/money.png" alt="money" className="w-20 aspect-square object-cover mx-auto" />
                 <h3 className="text-[20px] leading-7 font-semibold mt-6 mb-2">MONEY BACK GUARANTEE</h3>
                 <span className="text-[14px] leading-5 block">We reurn money within 30 days</span>
