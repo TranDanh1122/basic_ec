@@ -32,7 +32,7 @@ export default function Auth(): React.JSX.Element {
         }
     }
 
-    return <div className="flex items-center md:flex-col justify-between">
+    return <div className="flex items-center md:flex-row flex-col justify-between">
         <img loading="lazy" src="/assets/auth.png" alt="" className="w-4/7 h-full object-contain hidden md:block" />
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 lg:w-2/7 w-full shadow-lg px-10 py-20">
