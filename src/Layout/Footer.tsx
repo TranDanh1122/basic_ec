@@ -2,7 +2,7 @@ import { Input } from "@/components/ui/input";
 import React from "react";
 const Footer = React.memo((): React.JSX.Element => {
     return <>
-        <div className="container mx-auto flex flex-wrap items-center justify-center gap-y-8 text-center mt-52 mb-40">
+        <div className="container mx-auto md:px-0 px-4 flex flex-wrap items-center justify-center gap-y-8 text-center mt-52 mb-40">
             <div className="lg:w-1/3 md:w-1/2 w-full">
                 <img src="/assets/ship.png" alt="ship" className="w-20 aspect-square object-cover mx-auto" />
                 <h3 className="text-[20px] leading-7 font-semibold mt-6 mb-2">FREE AND FAST DELIVERY</h3>
@@ -20,7 +20,7 @@ const Footer = React.memo((): React.JSX.Element => {
             </div>
         </div>
         <footer className="bg-black text-white">
-            <div className="container mx-auto flex lg:flex-nowrap flex-wrap gap-y-8 items-start justify-between pt-20 pb-16">
+            <div className="container mx-auto md:px-0 px-4 flex lg:flex-nowrap flex-wrap gap-y-8 items-start justify-between pt-20 pb-16">
                 <div className="flex flex-col gap-6 md:w-1/2 w-full lg:w-auto">
                     <i className="block bg-white w-32 h-6" style={{
                         mask: "url(/assets/logo.svg) center / cover",

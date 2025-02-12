@@ -18,7 +18,7 @@ const Header = React.memo((): React.JSX.Element => {
         <span className="text-white  text-[14px] leading-[24px] text-center block bg-black py-3">
             Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%! <span className="font-semibold">ShopNow</span>
         </span>
-        <nav className="flex items-center justify-between pt-12 pb-6 border-b-[1px] border-solid border-black/50 container mx-auto">
+        <nav className="flex items-center justify-between pt-12 pb-6 border-b-[1px] border-solid border-black/50 container mx-auto md:px-0 px-4">
             <Link to="/"> <img src="/assets/logo.svg" alt="logo" className="w-32 h-6 object-cover " /></Link>
             {!isMobile && <><NavBar /> <ToolBar /></>}
             {isMobile && <MobileMenu header={header} />}

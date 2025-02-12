@@ -4,8 +4,8 @@ import React from "react";
 export default function About(): React.JSX.Element {
     return <>
         <BreadcrumbCPN items={[{ name: "Home", link: "/" }, { name: "About", link: "/about" }]} />
-        <section className="flex items-center justify-between gap-20">
-            <div className="py-32 w-1/2">
+        <section className="flex lg:flex-row flex-col items-center justify-between gap-20">
+            <div className="py-32 lg:w-1/2 w-full">
                 <h2 className="font-semibold text-[54px] mb-10">Our Story</h2>
                 <p className="leading-6">
                     Launced in 2015, Exclusive is South Asia’s premier online shopping makterplace with an active presense in Bangladesh.
@@ -17,7 +17,7 @@ export default function About(): React.JSX.Element {
                     Exclusive offers a diverse assotment in categories ranging  from consumer.
                 </p>
             </div>
-            <img src="/assets/about.png" className="w-1/2 h-full object-cover" />
+            <img src="/assets/about.png" className="lg:w-1/2 w-full h-full object-cover" />
         </section>
     </>
 }

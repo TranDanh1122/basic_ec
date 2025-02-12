@@ -32,10 +32,10 @@ export default function Auth(): React.JSX.Element {
         }
     }
 
-    return <div className="flex items-center justify-between">
-        <img src="/assets/auth.png" alt="" className="w-4/7 h-full object-contain" />
+    return <div className="flex items-center md:flex-col justify-between">
+        <img loading="lazy" src="/assets/auth.png" alt="" className="w-4/7 h-full object-contain hidden md:block" />
         <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 w-2/7 shadow-lg px-10 py-20">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 lg:w-2/7 w-full shadow-lg px-10 py-20">
                 <h2 className="text-4xl font-medium">{type == "login" ? "Log in to Exclusive" : "Create an account"}</h2>
                 {type != "login" && <span className="text-base font-medium block">Just for testing, doest not have regiser now</span>}
                 {type == "login" && <span className="text-base font-medium block">Enter your details below</span>}
